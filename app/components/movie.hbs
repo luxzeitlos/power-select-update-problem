@@ -1,0 +1,24 @@
+<button type="button" {{on "click" this.flip}}>Flip</button>
+
+<h1>Debug: this.actors</h1>
+{{#each this.actors as |actor|}}
+  <div>Actor: {{actor.id}} - {{actor.name}}</div>
+{{/each}}
+
+<h1>Broken Power Select</h1>
+<PowerSelect
+  @options={{this.actors}}
+  @onChange={{this.selectActor}}
+  as |actor|
+>
+  {{actor.name}}
+</PowerSelect>
+
+<h1>Fixed Power Select with Workaround</h1>
+<PowerSelect
+  @options={{this.actorsWithWorkaround}}
+  @onChange={{this.selectActor}}
+  as |actor|
+>
+  {{actor.name}}
+</PowerSelect>
